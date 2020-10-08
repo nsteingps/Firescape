@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 from matplotlib.collections import PatchCollection
 import os
 
+st.beta_set_page_config(layout="wide")
 #user_input_zip     = '91042'
 st.image(Image.open(os.environ['PWD'] + '/data/logo.png'), clear_figure = False)
 
@@ -15,6 +16,7 @@ user_input_zip     = st.text_input("zip code")
 if user_input_zip:
     map_instance = hm(user_input_zip)
     user_input_address = st.text_input("address")
+    col1, col2 = st.beta_columns(2)
 
     if user_input_address:
 
@@ -39,13 +41,13 @@ if user_input_zip:
         all_trees, all_trees_labeled, all_trees_ncomponents = map_instance.remove_small_clusters(tree_image, 0)
 
         if True in structure_overlap or parcel_flag or tree_proximity_flag:
-            st.image(Image.open(os.environ['PWD'] + '/data/potential_hazards.png'), clear_figure = False)
+            col1.image(Image.open(os.environ['PWD'] + '/data/potential_hazards.png'), clear_figure = False)
             if True in structure_overlap:
-                st.image(Image.open(os.environ['PWD'] + '/data/tree_overhang_warning.png'), clear_figure = False)
+                col1.image(Image.open(os.environ['PWD'] + '/data/tree_overhang_warning.png'), clear_figure = False)
             if parcel_flag:
-                st.image(Image.open(os.environ['PWD'] + '/data/property_line_warning.png'), clear_figure = False)
+                col1.image(Image.open(os.environ['PWD'] + '/data/property_line_warning.png'), clear_figure = False)
             if tree_proximity_flag:
-                st.image(Image.open(os.environ['PWD'] + '/data/tree_proximity_warning.png'), clear_figure = False)
+                col1.image(Image.open(os.environ['PWD'] + '/data/tree_proximity_warning.png'), clear_figure = False)
             st.image(Image.open(os.environ['PWD'] + '/data/caveat.png'), clear_figure = False)
 
         final_image = map_instance.generate_flagged_image(rgb_image, structure_overlap, parcel_overlap, structure_flag, parcel_flag)
@@ -60,9 +62,9 @@ if user_input_zip:
         fig.subplots_adjust(left=0, bottom=0, right=1, top=1, wspace=0, hspace=0)
         figure = plt.imshow(final_image,cmap="PiYG")
         plt.savefig('figure.png')
-        st.image(Image.open('figure.png'), clear_figure = False)
+        col2.image(Image.open('figure.png'), clear_figure = False)
 
-        st.image(Image.open(os.environ['PWD'] + '/data/full_ordinances.png'), clear_figure = False)
+        col1.image(Image.open(os.environ['PWD'] + '/data/full_ordinances.png'), clear_figure = False)
 
 
 
