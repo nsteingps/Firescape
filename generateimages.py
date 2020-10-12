@@ -132,7 +132,7 @@ class generateImages:
         # UTMx_point, UTMy_point = myProj(lon,lat) #UTM coordinates of point of interest
 
         # return (round(abs(UTMx_point-UTMx_ul)/resolution),round(abs(UTMy_point-UTMy_ul)/resolution))
-        import gdal
+        from osgeo import gdal
 
         driver = gdal.GetDriverByName('GTiff')
         dataset = gdal.Open(parent_image_path)
