@@ -8,7 +8,7 @@ import os
 
 st.beta_set_page_config(layout="wide")
 #user_input_zip     = '91042'
-st.image(Image.open(os.environ['PWD'] + '/data/logo.png'), clear_figure = False)
+#st.image(Image.open(os.environ['PWD'] + '/data/logo.png'), clear_figure = False)
 
 user_input_zip     = st.text_input("zip code")
 #user_input_address = '7348 ALPINE WAY LOS ANGELES CA 91042'
