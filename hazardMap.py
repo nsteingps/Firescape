@@ -93,7 +93,7 @@ class hazardMap:
         Returns a list of tuples containing (x,y) location in pixels defining a polygon
         vertices: list of strings of lat, lon returned by structures_by_address
         """
-        from osgeo import gdal
+        import gdal
 
         center_coordinates = image_info.center_coords
         ul_subset_x = center_coordinates[0] - imsize / 2.  # x pixel location of upper left corner in subset image
