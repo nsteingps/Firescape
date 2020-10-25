@@ -4,5 +4,5 @@ Firescape is a computer vision application that identifies wildfire hazards in r
 [![FireScape Demo](https://gifs.com/gif/firescape-P7v3v1)](https://www.youtube.com/watch?v=JrvrE_qidKE)
 
 <p align="center">
-  <img width="450" src="https://gifs.com/gif/firescape-P7v3v1)">
+  <img width="450" src="https://j.gifs.com/P7v3v1.gif">
 </p>
